@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
 
         $name = 'Bulbul';
         $id = '357';
@@ -18,7 +18,13 @@ class HomeController extends Controller
     //->with('id',"159");
     //return view('home.index')->withName($name)
     //->withId($id);
-    return view('home.index', compact('name','id'));
+    if($req->session()->has('username')){
+        return view('home.index', compact('name','id'));
+    }else{
+        $req->session()->flash('msg','Invalid Request Login first..!');
+        return redirect('/login');
+    }
+    
     }
 
     public function create(){
@@ -29,9 +35,24 @@ class HomeController extends Controller
         echo $req->username;
     }
     public function edit($id){
-        return view('home.edit')->with('id',$id);
+        /*
+        $userlist = $this->getUserlist();
+        $user = [];
+
+        foreach($userlist as $u){
+            if($u['id']==$id){
+                $user = $u;
+                break;
+            }
+        }
+        */
+        $user = ['id'=>2, 'username'=>'Raton','email'=>'rasel@gmail.com', 'password'=>'456'];
+        return view('home.edit')->with('user',$user);
     }
     public function update($id, Request $req){
+
+        //$user = ['id'=>$id, 'username' => $req->name, 'email' => $req->email, 'password' => $req->password];
+
         return redirect('home/userlist');
     }
 

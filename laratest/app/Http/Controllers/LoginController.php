@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function index(){
+      
         return view('login.index');
     }
 
@@ -17,12 +18,15 @@ class LoginController extends Controller
        //echo $req -> password;
 
        if($req->username == "" ||  $req->password == ""){
-           echo "Null Submission...!";
+           $req->session()->flash('msg','Null Username and Password...!');
+           return redirect('/login');
 
        }elseif($req->username == $req->password){
            //echo "Valid User...";
+           $req->session()->put('username',$req->username);
            return redirect('/home');
        }else{
+           $req->session()->flash('msg','Invaild Username and Password...!');
         return redirect('/login');
        }
 

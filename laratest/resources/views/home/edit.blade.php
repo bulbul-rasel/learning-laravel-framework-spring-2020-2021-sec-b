@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>User Id, {{$id}}  </h1>
+<h1>User Id, {{$user['id']}}  </h1>
 
 <form method = "POST">
 	<fieldset>

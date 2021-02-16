@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>Welcome Home..! {{$name}} </h1>
+<h1>Welcome Home..! {{ session('username') }} </h1>
 <a href="/home/create">Create User</a>
 <a href="/home/userlist">View User List</a>
 <a href="/logout">Logout</a>
