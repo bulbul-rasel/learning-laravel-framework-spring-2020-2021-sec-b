@@ -26,6 +26,10 @@ Route::get('/logout', 'LogoutController@index');
 
 Route::get('/test', 'LoginController@test');
 
+Route::get('/registration/create', 'RegistrationController@create');
+Route::post('/registration', 'CustomerController@store');
+
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/home/create', 'HomeController@create');
