@@ -56,9 +56,8 @@
 			</tr>
 			
 			<tr>
-				<td><input type="Submit" name = "submit" value = "Sign Up"></td>
+				<td><input type="Submit" name = "submit" value = "Save"></td>
 			</tr>
-			<a href="/home">Already Registerd</a>
 		</table>
 	</fieldset>
 	</form>

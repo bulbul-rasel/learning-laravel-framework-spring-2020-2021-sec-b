@@ -27,31 +27,37 @@ Route::get('/logout', 'LogoutController@index');
 Route::get('/test', 'LoginController@test');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/login','LoginController@verify' )->middleware('verified');
 
 Route::get('/home/create', 'HomeController@create');
 Route::post('/home/create', 'HomeController@store');
 
 Route::get('/home/userlist', 'HomeController@userlist');
 
-Route::get('/home/edit/{id}', 'HomeController@edit');
+Route::get('/registration/create', 'RegistrationController@create');
+Route::post('/registration', 'CustomerController@store');
+
+
+
+Route::get('/home/edit/{id}', 'HomeController@edit')->middleware('verified');
 Route::post('/home/edit/{id}', 'HomeController@update');
 
 Route::get('/admin/delete/{id}', 'AdminController@destroy');
-Route::get('/admin/{id}/edit', 'AdminController@edit');
+Route::get('/admin/{id}/edit', 'AdminController@edit')->middleware('verified');
 Route::post('/admins', 'AdminController@store');
 Route::post('/admins', 'AdminController@index');
 Route::post('/admin/{id}', 'AdminController@update');
 
 Route::get('/products/create', 'ProductController@create');
 Route::get('/product/delete/{id}', 'ProductController@destroy');
-Route::get('/products/{id}/edit', 'ProductController@edit');
+Route::get('/products/{id}/edit', 'ProductController@edit')->middleware('verified');
 Route::post('/products', 'ProductController@store');
 Route::post('/products', 'ProductController@index');
 Route::post('/product/{id}', 'ProductController@update');
 
 Route::get('/cutomers/create', 'CustomerController@create');
 Route::get('/cutomer/delete/{id}', 'CustomerControllerr@destroy');
-Route::get('/cutomers/{id}/edit', 'CustomerController@edit');
+Route::get('/cutomers/{id}/edit', 'CustomerController@edit')->middleware('verified');
 Route::post('/cutomers', 'CustomerController@store');
 Route::post('/cutomers', 'CustomerController@index');
 Route::post('/cutomer/{id}', 'CustomerController@update');

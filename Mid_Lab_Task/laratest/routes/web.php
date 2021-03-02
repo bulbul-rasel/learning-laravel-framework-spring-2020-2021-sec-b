@@ -40,6 +40,11 @@ Route::get('/home/userlist', 'HomeController@userlist');
 Route::get('/home/edit/{id}', 'HomeController@edit');
 Route::post('/home/edit/{id}', 'HomeController@update');
 
+Route::get('system/sales', 'SystemController@sellCount')->name('system.sales');
+
+Route::get('system/sales/physical_store', 'SystemController@physical_index')->name('system.physical_store');
+Route::post('system/sales/physical_store', 'SystemController@store');
+
 Route::get('/admin/delete/{id}', 'AdminController@destroy');
 Route::get('/admin/{id}/edit', 'AdminController@edit');
 Route::post('/admins', 'AdminController@store');
@@ -59,3 +64,8 @@ Route::get('/cutomers/{id}/edit', 'CustomerController@edit');
 Route::post('/cutomers', 'CustomerController@store');
 Route::post('/cutomers', 'CustomerController@index');
 Route::post('/cutomer/{id}', 'CustomerController@update');
+Route::get('system/sales/physical_store', 'SystemController@physical_index')->name('system.physical_store');
+Route::post('system/sales/physical_store', 'SystemController@store');
+
+Route::get('system/sales/social_media', 'SystemController@social_index');
+Route::get('system/sales/ecommerce', 'SystemController@ecommerce_index');
