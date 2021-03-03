@@ -12,28 +12,37 @@
 
 <form action="/products/{{$data->id}}" method = "POST">
     
-	<fieldset>
-		<legend>Cterate Product</legend>
-		<table>
-        {{csrf_field()}}
-			<tr>
-				<td>Name</td>
-				<td><input type="text" name = "name" value = "{{$data->name}}"></td>
-			</tr>
-			<tr>
-				<td>Product_Id</td>
-				<td><input type="text" name = "productId" value = "{{$data->productId}}"></td>
-			</tr>
-			<tr>
-				<td>Type</td>
-				<td><input type="text" name = "type" value = "{{$data->type}}"></td>
-			</tr>
-			
-			<tr>
-				<td><input type="Submit"  value = "Update"></td>
-			</tr>
-		</table>
-	</fieldset>
-	</form>
+<fieldset>
+        <form>
+            <table>
+				<tr>
+					<td>id: </td>
+					<td><input type="text" name="id" value="{{ $product('id') }}" readonly></td>
+				</tr>
+                <tr>
+					<td>Product Name: </td>
+					<td><input type="text" name="product_name" value="{{ $product('product_name') }}" ></td>
+				</tr>
+                <tr>
+					<td>Category: </td>
+					<td><input type="text" name="category" value="{{ $product('category') }}" ></td>
+				</tr>
+                <tr>
+					<td>Quantity: </td>
+					<td><input type="text" name="quantity" value="{{ $product('quantity') }}" ></td>
+				</tr>
+                <tr>
+					<td>Unit Price: </td>
+					<td><input type="text" name="unit_price" value="{{ $product('unit_price') }}" ></td>
+				</tr>
+                <tr>
+					<td>Status: </td>
+					<td><input type="text" name="status" value="{{ $product('status') }}" ></td>
+				</tr>
+			</table>
+
+        </form>
+    </fieldset
+</form>
 </body>
 </html>
