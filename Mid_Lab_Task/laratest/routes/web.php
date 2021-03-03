@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 });    
 
-Route::get('/login', 'LoginController@index');
+Route::get('/login', 'LoginController@index')->name('login.index');
 Route::post('/login', 'LoginController@verify');
 
 Route::get('/logout', 'LogoutController@index');
