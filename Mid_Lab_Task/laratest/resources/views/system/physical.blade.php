@@ -1,13 +1,10 @@
-
 <h1>Welcome To Physical store Dashboard</h1>
-
 
 <br>
 <button onclick="location.href='/system/sales/physical_store/sales_log';"> View Sales Log </button>
 <button onclick="location.href='/logout';"> Logout </button>
 <br><br>
 
-@section('main_content')
 <fieldset>
 <legend>Dashboard:</legend>
     <table border='1'>

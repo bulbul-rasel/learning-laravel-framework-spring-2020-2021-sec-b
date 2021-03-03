@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Physical_channel;
 use App\Ecommerce_channel;
 use App\Social_media_channel;
+use App\Product;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -35,10 +36,21 @@ class SystemController extends Controller
     public function ecommerce_index(){
         return view('system.ecommerce');
     }
+    public function product_index(){
+
+        $available_product = DB::table('products')->where('status', 'available')->get();
+        $available_product_counter = count($available_product);
+        
+        $upcomming_product = DB::table('products')->where('status', 'upcoming')->get();
+        $upcomming_product_counter = count($upcomming_product);
+
+        return view('system.product')->with('data',['available_product_counter'=>$available_product_counter,
+                                                        'upcomming_product_counter'=>$upcomming_product_counter]);
+    }
 
     public function sellCount(){
 
-        //7day
+    
 
         $date_7 = \Carbon\Carbon::today()->subDays(7);
 
@@ -51,7 +63,7 @@ class SystemController extends Controller
         $social_products_7 = Social_media_channel::where('sell_date','>=',$date_7)->get();
         $social_counter_7 = count($social_products_7);
 
-        //1day
+       
 
         $date = \Carbon\Carbon::today();
         $physical_products = Physical_channel::where('sell_date','>=',$date)->get();
