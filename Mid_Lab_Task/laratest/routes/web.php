@@ -72,3 +72,4 @@ Route::get('system/sales/ecommerce', 'SystemController@ecommerce_index');
 Route::get('system/product_management', 'SystemController@product_index');
 Route::get('system/product_management/available_products', 'SystemController@available_product_index');
 Route::get('system/product_management/available_products/edit/{id}', 'SystemController@product_edit');
+Route::get('system/product_management/upcomming_products', 'SystemController@upcomming_product_index')->name('system.upcomming_products');
